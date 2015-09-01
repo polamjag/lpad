@@ -20,7 +20,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'unimidi'
+require 'lpad'
+
+dev = UniMIDI::Output.gets.open
+
+lp = Lpad::Device::Base.new dev
+
+# indexes are 1-origin (1 to 8)
+# color velocities are 0 to 3
+lp.set x: 3, y: 4, red: 2, green: 2
+lp.set button: :user_1, red: 3
+lp.set button: :stop, green: 1
+
+lp.reset!
+```
+
+[See demo movie of example/random.rb in YouTube](https://youtu.be/-pYzOw5pUVg)
 
 ## Development
 
